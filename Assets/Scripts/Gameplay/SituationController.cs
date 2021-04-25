@@ -43,6 +43,8 @@ public class SituationController : MonoBehaviour
         }
 
         SetSituationDataOnInterface();
+
+        m_DecisionPanel.SetButtonInteraction(true);
     }
 
     void SetSituationDataOnInterface()

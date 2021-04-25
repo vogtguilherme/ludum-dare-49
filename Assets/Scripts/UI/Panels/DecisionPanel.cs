@@ -16,6 +16,11 @@ public class DecisionPanel : MonoBehaviour
         GetComponents();
     }
 
+    private void OnDisable()
+    {
+        UnassignButtonEvent();
+    }
+
     void GetComponents()
     {
         m_Decisions = new GameObject[transform.childCount];
@@ -25,6 +30,28 @@ public class DecisionPanel : MonoBehaviour
         {
             m_Decisions[i] = transform.GetChild(i).gameObject;
             m_DecisionButton[i] = transform.GetChild(i).GetComponent<DecisionButton>();
+            m_DecisionButton[i].OnButtonClick += HandleDecisionButtonClick;
+        }
+    }
+
+    void UnassignButtonEvent()
+    {
+        for (int i = 0; i < m_DecisionButton.Length; i++)
+        {
+            m_DecisionButton[i].OnButtonClick -= HandleDecisionButtonClick;
+        }
+    }
+
+    void HandleDecisionButtonClick()
+    {
+        SetButtonInteraction(false);
+    }
+
+    public void SetButtonInteraction(bool value)
+    {
+        for (int i = 0; i < m_DecisionButton.Length; i++)
+        {
+            m_DecisionButton[i].SetButtonInteractable(value);
         }
     }
 }

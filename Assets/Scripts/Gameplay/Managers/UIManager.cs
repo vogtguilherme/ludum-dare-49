@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    
+    //[SerializeField]
+    //private DecisionPanel m_DecisionPanel = null;
 }
