@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+
 public class SituationController : MonoBehaviour
 {
-    [SerializeField]
-    private SituationData situationData = null;
+    public event Action OnNewSituation;
+    
     private Situation m_CurrentSituation = null;
+
     [SerializeField]
     private GameObject m_DecisionPanelObj = null;
     [SerializeField]
@@ -30,9 +33,21 @@ public class SituationController : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SetCurrentSituation(Situation situation)
     {
-        m_CurrentSituation = situationData.GetSituation();
+        m_CurrentSituation = situation;
+
+        if(OnNewSituation != null)
+        {
+            OnNewSituation.Invoke();
+        }
+
+        SetSituationDataOnInterface();
+    }
+
+    void SetSituationDataOnInterface()
+    {
+        if (m_CurrentSituation == null) return;
         
         for (int i = 0; i < m_DecisionPanel.decisionButton.Length; i++)
         {

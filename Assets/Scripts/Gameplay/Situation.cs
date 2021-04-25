@@ -5,11 +5,13 @@ using UnityEngine;
 public class Situation
 {
     public Group m_Group { get; private set; }
+    public SituationType m_SituationType { get; private set; }
     public string m_Briefing { get; private set; }
     public Decision[] m_Decisions { get; private set; }
 
-    public Situation(string briefing, int decisionsCount)
+    public Situation(SituationType situationType, string briefing, int decisionsCount)
     {
+        m_SituationType = situationType;
         m_Briefing = briefing;
         m_Decisions = new Decision[decisionsCount];
     }
@@ -18,4 +20,9 @@ public class Situation
     {
         m_Decisions = decisions;
     }
+}
+
+public enum SituationType
+{
+    Common, Rare, Exceptional
 }

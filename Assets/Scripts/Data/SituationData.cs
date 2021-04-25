@@ -8,12 +8,14 @@ public class SituationData : ScriptableObject
     [TextArea]
     public string brief;
 
+    public SituationType type;
+
     public Decision[] decisions;
 
     public Situation GetSituation()
     {
         Situation situation;
-        situation = new Situation(brief, decisions.Length);
+        situation = new Situation(type, brief, decisions.Length);
 
         situation.SetDecisions(decisions);
         
