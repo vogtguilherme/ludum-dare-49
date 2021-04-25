@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
   m_Name: Situation
   m_EditorClassIdentifier: 
-  brief: 
+  brief: ...
   decisions:
   - m_DecisionText: a
     m_Consequences: []
   - m_DecisionText: b
     m_Consequences: []
   - m_DecisionText: c
-    m_Consequences: []
-  - m_DecisionText: d
     m_Consequences: []

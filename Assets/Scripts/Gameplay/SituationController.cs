@@ -9,8 +9,11 @@ public class SituationController : MonoBehaviour
     private Situation m_CurrentSituation = null;
     [SerializeField]
     private GameObject m_DecisionPanelObj = null;
+    [SerializeField]
+    private GameObject m_BriefingPanelObj = null;
 
     private DecisionPanel m_DecisionPanel = null;
+    private BriefingPanel m_BriefingPanel = null;
 
     public Situation CurrentSituation { get => m_CurrentSituation; }
 
@@ -19,6 +22,11 @@ public class SituationController : MonoBehaviour
         if(m_DecisionPanelObj != null)
         {
             m_DecisionPanel = m_DecisionPanelObj.GetComponent<DecisionPanel>();
+        }
+
+        if(m_BriefingPanelObj != null)
+        {
+            m_BriefingPanel = m_BriefingPanelObj.GetComponent<BriefingPanel>();
         }
     }
 
@@ -34,7 +42,9 @@ public class SituationController : MonoBehaviour
                 m_DecisionPanel.decisionButton[i].AssignDecision(decision);
             else
                 Debug.LogError("Sem referencia de decisão");
-
         }
+
+        var briefingText = m_CurrentSituation.m_Briefing;
+        m_BriefingPanel.SetBriefingText(briefingText);
     }
 }
