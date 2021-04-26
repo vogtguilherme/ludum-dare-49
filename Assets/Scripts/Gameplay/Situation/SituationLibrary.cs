@@ -20,6 +20,16 @@ public class SituationLibrary : MonoBehaviour
         m_ExceptionalSituations = new List<Situation>();
     }
 
+    private void Start()
+    {
+        GameManager.Instance.OnDecisionMade += RemoveCommonSituation;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnDecisionMade -= RemoveCommonSituation;
+    }
+
     public Situation GetCommonSituation()
     {
         Situation situation;
@@ -29,6 +39,11 @@ public class SituationLibrary : MonoBehaviour
         situation = m_CommonSituations[index];
         
         return situation;
+    }
+
+    void RemoveCommonSituation(Situation situation)
+    {
+        m_CommonSituations.Remove(situation);
     }
 
     int GetIndexInsideList(List<Situation> situationList)

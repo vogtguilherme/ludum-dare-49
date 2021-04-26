@@ -495,7 +495,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SituationData:
-  - {fileID: 11400000, guid: adad68f3db955a4429c95e45c18087c0, type: 2}
+  - {fileID: 11400000, guid: 6c908fc37a1e7a74495fc6fea33200d5, type: 2}
+  - {fileID: 11400000, guid: ce8ab6a46b3c92045aec6fe05159c682, type: 2}
 --- !u!1 &210400713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1697,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Text: {fileID: 0}
   m_Image: {fileID: 0}
+  m_GroupController: {fileID: 0}
+  m_Group:
+    m_GroupName: 
 --- !u!1 &1550199882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2054,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Text: {fileID: 0}
   m_Image: {fileID: 0}
+  m_GroupController: {fileID: 0}
+  m_Group:
+    m_GroupName: 
 --- !u!1 &1741816096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,6 +2475,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Text: {fileID: 0}
   m_Image: {fileID: 0}
+  m_GroupController: {fileID: 0}
+  m_Group:
+    m_GroupName: 
 --- !u!1 &2107285511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,3 +2697,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Text: {fileID: 0}
   m_Image: {fileID: 0}
+  m_GroupController: {fileID: 0}
+  m_Group:
+    m_GroupName: 

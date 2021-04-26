@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
         get => s_Instance;
     }
 
-    public event Action OnDecisionMade;     //Aqui é o melhor lugar pra esse evento?
+    public event Action OnTurnEnd;     //Aqui é o melhor lugar pra esse evento?
+    public event Action<Situation> OnDecisionMade;
 
     [SerializeField]
     private GameObject situationController = null;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         {
             var situation = m_SituationLibrary.GetCommonSituation();
             m_SituationController.SetCurrentSituation(situation);
+
             Debug.Log("Nova situação!");
 
             while (decisionMade == false)
@@ -61,6 +63,12 @@ public class GameManager : MonoBehaviour
             }
 
             Debug.Log("Decisão tomada!");
+
+            if(OnDecisionMade != null)
+            {
+                OnDecisionMade.Invoke(m_SituationController.CurrentSituation);
+            }
+
             decisionMade = false;
 
             yield return null;
@@ -73,9 +81,9 @@ public class GameManager : MonoBehaviour
     {
         decisionMade = true;
 
-        if(OnDecisionMade != null)
+        if(OnTurnEnd != null)
         {
-            OnDecisionMade();
+            OnTurnEnd();
         }
     }
 
