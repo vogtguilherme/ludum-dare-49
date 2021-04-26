@@ -30,6 +30,16 @@ public class Consequence
     [SerializeField]
     int influenceAlteration;    
 
+    public Group Group
+    {
+        get => affectedGroup;
+    }
+
+    public int Influence
+    {
+        get => influenceAlteration;
+    }
+
     public Consequence(Group affectedGroup, int influenceAlteration)
     {
         this.affectedGroup = affectedGroup;

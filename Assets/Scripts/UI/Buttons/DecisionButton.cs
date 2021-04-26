@@ -18,6 +18,8 @@ public class DecisionButton : UIButton
     {
         base.HandleButtonClick();
 
+        GameManager.Instance.m_GroupController.ApplyDecisionConsequence(m_Decision.Consequences);
+
         GameManager.Instance.ConfirmDecision();
     }
 

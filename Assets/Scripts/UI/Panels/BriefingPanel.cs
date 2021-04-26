@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BriefingPanel : MonoBehaviour
+public class BriefingPanel : UIPanel
 {
     [SerializeField]
     private Text m_BriefingText = null;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         m_BriefingText = GetComponentInChildren<Text>();
     }
 

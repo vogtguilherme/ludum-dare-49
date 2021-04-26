@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DecisionPanel : MonoBehaviour
+public class DecisionPanel : UIPanel
 {
     [SerializeField]
     private GameObject[] m_Decisions = null;
@@ -11,8 +11,10 @@ public class DecisionPanel : MonoBehaviour
         
     public DecisionButton[] decisionButton { get => m_DecisionButton; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        
         GetComponents();
     }
 

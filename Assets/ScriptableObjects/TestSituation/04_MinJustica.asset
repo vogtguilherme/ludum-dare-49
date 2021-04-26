@@ -10,23 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
-  m_Name: Situation
+  m_Name: 04_MinJustica
   m_EditorClassIdentifier: 
-  brief: ...
+  brief: "A corrup\xE7\xE3o no governo est\xE1 destruindo a sua imagem!\r\nO que
+    sugere que fa\xE7amos?\r"
   type: 0
   decisions:
-  - m_DecisionText: a
+  - m_DecisionText: Compre todos os corruptos para ficarem do nosso lado.
     m_Consequences:
     - affectedGroup:
-        m_GroupName: People
-      influenceAlteration: 10
-  - m_DecisionText: b
-    m_Consequences:
-    - affectedGroup:
-        m_GroupName: Military
-      influenceAlteration: 5
-  - m_DecisionText: c
-    m_Consequences:
-    - affectedGroup:
-        m_GroupName: Parlament
-      influenceAlteration: -10
+        m_GroupName: 
+      influenceAlteration: 0
+  - m_DecisionText: 'Vou falar sobre golden shower na internet para mudar o foco. '
+    m_Consequences: []
+  - m_DecisionText: Investigue os deputados!
+    m_Consequences: []

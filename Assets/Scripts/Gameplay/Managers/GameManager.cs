@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,13 +13,17 @@ public class GameManager : MonoBehaviour
         get => s_Instance;
     }
 
-    public event Action OnDecisionMade;     //Aqui é o melhor lugar pra esse evento?
+    public event Action OnTurnEnd;     //Aqui é o melhor lugar pra esse evento?
+    public event Action<Situation> OnDecisionMade;
 
     [SerializeField]
     private GameObject situationController = null;
+    [SerializeField]
+    private GameObject groupController = null;
 
-    private SituationController m_SituationController = null;
-    private SituationLibrary m_SituationLibrary = null;
+    public GroupController m_GroupController { get; private set; }
+    public SituationController m_SituationController { get; private set; }
+    public SituationLibrary m_SituationLibrary { get; private set; }
 
     private bool decisionMade = false;
     private bool gameOver;
@@ -35,6 +40,7 @@ public class GameManager : MonoBehaviour
         gameOver = false;
 
         m_SituationLibrary.GenerateSituations();
+        m_GroupController.CreateGroups();
 
         StartCoroutine(GameLoop());
     }
@@ -46,22 +52,45 @@ public class GameManager : MonoBehaviour
         while(gameOver == false)
         {
             var situation = m_SituationLibrary.GetCommonSituation();
-            m_SituationController.SetCurrentSituation(situation);
-            Debug.Log("Nova situação!");
 
-            while (decisionMade == false)
+            if (situation == null)
             {
-                Debug.Log("Esperando decisão...");
-
-                yield return null;
+                gameOver = true;                
             }
+            else
+            {
+                m_SituationController.SetCurrentSituation(situation);
 
-            Debug.Log("Decisão tomada!");
-            decisionMade = false;
+                Debug.Log("Nova situação!");
+
+                UIManager.Instance.FadeInPanels();
+                yield return new WaitForSeconds(2f);
+
+                while (decisionMade == false)
+                {
+                    Debug.Log("Esperando decisão...");
+
+                    yield return null;
+                }
+
+                Debug.Log("Decisão tomada!");
+
+                if (OnDecisionMade != null)
+                {
+                    OnDecisionMade.Invoke(m_SituationController.CurrentSituation);
+                }
+
+                decisionMade = false;
+
+                UIManager.Instance.FadeOutPanels();
+
+                yield return new WaitForSeconds(2f);
+            }            
 
             yield return null;
-        }       
-        
+        }
+
+        Debug.Log("GameOver");
     }
     
     #endregion
@@ -70,9 +99,9 @@ public class GameManager : MonoBehaviour
     {
         decisionMade = true;
 
-        if(OnDecisionMade != null)
+        if(OnTurnEnd != null)
         {
-            OnDecisionMade();
+            OnTurnEnd();
         }
     }
 
@@ -94,6 +123,10 @@ public class GameManager : MonoBehaviour
         {
             m_SituationController = situationController.GetComponent<SituationController>();
             m_SituationLibrary = situationController.GetComponent<SituationLibrary>();
+        }
+        if(groupController != null)
+        {
+            m_GroupController = groupController.GetComponent<GroupController>();
         }
     }
 }
