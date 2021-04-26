@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Situation", menuName = "ScriptableObjects/GameplaySituation")]
 public class SituationData : ScriptableObject
 {
+    public string character;
     [TextArea]
     public string brief;
+
+    public Sprite characterSprite;
 
     public SituationType type;
 
