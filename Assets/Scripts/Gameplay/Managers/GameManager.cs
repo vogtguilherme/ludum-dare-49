@@ -16,9 +16,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject situationController = null;
+    [SerializeField]
+    private GameObject groupController = null;
 
-    private SituationController m_SituationController = null;
-    private SituationLibrary m_SituationLibrary = null;
+    public GroupController m_GroupController { get; private set; }
+    public SituationController m_SituationController { get; private set; }
+    public SituationLibrary m_SituationLibrary { get; private set; }
 
     private bool decisionMade = false;
     private bool gameOver;
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
         gameOver = false;
 
         m_SituationLibrary.GenerateSituations();
+        m_GroupController.CreateGroups();
 
         StartCoroutine(GameLoop());
     }
@@ -60,8 +64,7 @@ public class GameManager : MonoBehaviour
             decisionMade = false;
 
             yield return null;
-        }       
-        
+        }
     }
     
     #endregion
@@ -94,6 +97,10 @@ public class GameManager : MonoBehaviour
         {
             m_SituationController = situationController.GetComponent<SituationController>();
             m_SituationLibrary = situationController.GetComponent<SituationLibrary>();
+        }
+        if(groupController != null)
+        {
+            m_GroupController = groupController.GetComponent<GroupController>();
         }
     }
 }

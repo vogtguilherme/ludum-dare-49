@@ -28,21 +28,21 @@ public class Group
 
     public void IncreaseInfluence(int value)
     {
-        ClampInfluenceValue(m_CurrentInfluence + value);      
-    }
+        int newValue = m_CurrentInfluence + value;
 
-    public void RemoveInfluence(int value)
-    {
-        ClampInfluenceValue(m_CurrentInfluence - value);
-    }
+        if(newValue > 100)
+        {
+            m_CurrentInfluence = 100;
+        }
+        else if(newValue < 0)
+        {
+            m_CurrentInfluence = 0;
+        }
+        else
+        {
+            m_CurrentInfluence = newValue;
+        }
 
-    private int ClampInfluenceValue(int value)
-    {
-        int clampedValue = Mathf.Clamp(value, 0, 100);
-
-        Debug.Log(m_GroupName + " current influence: " + clampedValue);
-        m_CurrentInfluence = clampedValue;
-
-        return clampedValue;
+        Debug.Log(m_GroupName + " current influence: " + m_CurrentInfluence);
     }
 }

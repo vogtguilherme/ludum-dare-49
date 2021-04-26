@@ -13,10 +13,20 @@ MonoBehaviour:
   m_Name: Situation
   m_EditorClassIdentifier: 
   brief: ...
+  type: 0
   decisions:
   - m_DecisionText: a
-    m_Consequences: []
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: 10
   - m_DecisionText: b
-    m_Consequences: []
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: Military
+      influenceAlteration: 5
   - m_DecisionText: c
-    m_Consequences: []
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: Parlament
+      influenceAlteration: -10
