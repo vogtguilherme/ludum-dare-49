@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -51,28 +52,45 @@ public class GameManager : MonoBehaviour
         while(gameOver == false)
         {
             var situation = m_SituationLibrary.GetCommonSituation();
-            m_SituationController.SetCurrentSituation(situation);
 
-            Debug.Log("Nova situação!");
-
-            while (decisionMade == false)
+            if (situation == null)
             {
-                Debug.Log("Esperando decisão...");
-
-                yield return null;
+                gameOver = true;                
             }
-
-            Debug.Log("Decisão tomada!");
-
-            if(OnDecisionMade != null)
+            else
             {
-                OnDecisionMade.Invoke(m_SituationController.CurrentSituation);
-            }
+                m_SituationController.SetCurrentSituation(situation);
 
-            decisionMade = false;
+                Debug.Log("Nova situação!");
+
+                UIManager.Instance.FadeInPanels();
+                yield return new WaitForSeconds(2f);
+
+                while (decisionMade == false)
+                {
+                    Debug.Log("Esperando decisão...");
+
+                    yield return null;
+                }
+
+                Debug.Log("Decisão tomada!");
+
+                if (OnDecisionMade != null)
+                {
+                    OnDecisionMade.Invoke(m_SituationController.CurrentSituation);
+                }
+
+                decisionMade = false;
+
+                UIManager.Instance.FadeOutPanels();
+
+                yield return new WaitForSeconds(2f);
+            }            
 
             yield return null;
         }
+
+        Debug.Log("GameOver");
     }
     
     #endregion

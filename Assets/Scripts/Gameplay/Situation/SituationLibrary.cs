@@ -34,9 +34,14 @@ public class SituationLibrary : MonoBehaviour
     {
         Situation situation;
 
-        int index = GetIndexInsideList(m_CommonSituations);
+        if (m_CommonSituations.Count == 0)
+            return null;
+        else
+        {
+            int index = GetIndexInsideList(m_CommonSituations);
 
-        situation = m_CommonSituations[index];
+            situation = m_CommonSituations[index];
+        }        
         
         return situation;
     }

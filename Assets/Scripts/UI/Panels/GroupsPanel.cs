@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class GroupsPanel : MonoBehaviour
+public class GroupsPanel : UIPanel
 {
     [SerializeField]
     private GameObject[] m_GroupPanel = null;
@@ -15,8 +15,10 @@ public class GroupsPanel : MonoBehaviour
         get { return m_GroupIcons; }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        
         GetPanelsGameObject();
     }
 
