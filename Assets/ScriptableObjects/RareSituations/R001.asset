@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
+  m_Name: R001
+  m_EditorClassIdentifier: 
+  character: 
+  brief: "This is the international summit discutir a mudan\xE7a clim\xE1tica. What
+    do you have to say for the other presidents?)"
+  characterSprite: {fileID: 21300000, guid: 1dfb0957f280eef409c46604cd9274fa, type: 3}
+  type: 1
+  situationBackground: 1
+  decisions:
+  - m_DecisionText: The forest is ours! If you interfere, we will solve it with gunpowder!
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: -30
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: -30
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: -30
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: 30
+  - m_DecisionText: We care a lot about our forest, but we need money from other
+      countries to protect it
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: 20
+  - m_DecisionText: The Climate change is extremely important and we are going to
+      increase our investment in the sector
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: 30
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: 30
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: 30
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: -30

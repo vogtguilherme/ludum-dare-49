@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
+  m_Name: R003
+  m_EditorClassIdentifier: 
+  character: Secretary of Health and Human Services
+  brief: We need to do something to stop the pandemic. It is killing thousands of
+    citizens quickly.
+  characterSprite: {fileID: 21300000, guid: 9a85282e343fe344db7fcf0ff6dc7ef5, type: 3}
+  type: 1
+  situationBackground: 3
+  decisions:
+  - m_DecisionText: We will encourage people to go out on the street so as not to
+      break the economy!
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: -30
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: -30
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: 30
+  - m_DecisionText: We will disclose that this little flu is harmless.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: 20
+  - m_DecisionText: We will support the use of a mask and social isolation until
+      we have a vaccine.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: 30
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: 30
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: 10
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: -30
