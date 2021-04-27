@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class UIManager : MonoBehaviour
     public GameObject decisionPanel = null;
     public GameObject briefingPanel = null;
     public GameObject groupsPanel = null;
+
+    public Image m_CharacterImage = null;
     
     private UIPanel m_DecisionPanel = null;
     private UIPanel m_BriefingPanel = null;
@@ -28,6 +31,33 @@ public class UIManager : MonoBehaviour
         SingletonSetup();
         
         GetScriptReferences();
+    }
+
+    private void Start()
+    {
+        m_CharacterImage.color = new Color(0, 0, 0, 0);
+    }
+
+    public void SetCharacterSprite(Sprite sprite)
+    {
+        StartCoroutine(SetNewCharacterAndFadeIn(sprite));
+    }
+
+    public void FadeOutCharacter()
+    {
+        StartCoroutine(CharacterFadeOut());
+    }
+
+    IEnumerator SetNewCharacterAndFadeIn(Sprite sprite)
+    {
+        m_CharacterImage.sprite = sprite;
+
+        yield return SpriteFader.FadeSprite(m_CharacterImage, new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), 1f);
+    }
+
+    IEnumerator CharacterFadeOut()
+    {
+        yield return SpriteFader.FadeSprite(m_CharacterImage, new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1f);
     }
 
     public void FadeOutPanels()

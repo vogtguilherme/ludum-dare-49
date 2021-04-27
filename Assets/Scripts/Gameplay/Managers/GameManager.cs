@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 m_SituationController.SetCurrentSituation(situation);
+                UIManager.Instance.SetCharacterSprite(situation.m_CharacterSprite);
 
                 Debug.Log("Nova situação!");
 
@@ -83,6 +84,12 @@ public class GameManager : MonoBehaviour
                 decisionMade = false;
 
                 UIManager.Instance.FadeOutPanels();
+
+                yield return new WaitForSeconds(.5f);
+
+                var n_Situation = m_SituationController.CurrentSituation;
+
+                UIManager.Instance.FadeOutCharacter();
 
                 yield return new WaitForSeconds(2f);
             }            

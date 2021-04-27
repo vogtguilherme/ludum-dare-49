@@ -18,7 +18,7 @@ public class SituationData : ScriptableObject
     public Situation GetSituation()
     {
         Situation situation;
-        situation = new Situation(type, brief, decisions.Length);
+        situation = new Situation(type, brief, decisions.Length, characterSprite);
 
         situation.SetDecisions(decisions);
         
