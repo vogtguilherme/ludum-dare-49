@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
+  m_Name: 010
+  m_EditorClassIdentifier: 
+  character: General Secretary
+  brief: 'Mr President, this year we need to carry out the census, but our numbers
+    are catastrophic.
+
+    What do you suggest, sir?
+
+'
+  characterSprite: {fileID: 21300000, guid: 8459a0c28ca378c408adc4e665bd905d, type: 3}
+  type: 0
+  situationBackground: 0
+  decisions:
+  - m_DecisionText: Take the census with false data!
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: 5
+    - affectedGroup:
+        m_GroupName: Parlament
+      influenceAlteration: 10
+    - affectedGroup:
+        m_GroupName: Military
+      influenceAlteration: 10
+  - m_DecisionText: 'Don''t take the census and say that we lacked resources! '
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Parlament
+      influenceAlteration: -10
+  - m_DecisionText: 'Do the census anyway to be transparent with the population. '
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: 5
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: 10
+    - affectedGroup:
+        m_GroupName: Parlament
+      influenceAlteration: 10

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
+  m_Name: 011
+  m_EditorClassIdentifier: 
+  character: Military
+  brief: President, your opponents are trying to dirty up the reputation of the armed
+    forces under your command. What do you intend to do?
+  characterSprite: {fileID: 21300000, guid: c65af2c797b413e4e9dd9f2f3751a6f6, type: 3}
+  type: 0
+  situationBackground: 0
+  decisions:
+  - m_DecisionText: I will invent a communist threat to reiterate the strength of
+      the army.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: 20
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: 10
+  - m_DecisionText: We are going to propose a military self-coup!
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: 20
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: 10
+  - m_DecisionText: Let the population exercise freedom of speech.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: 10
+    - affectedGroup:
+        m_GroupName: Military
+        lowInfluence: 0
+      influenceAlteration: -20

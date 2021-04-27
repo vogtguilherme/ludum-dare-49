@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
+  m_Name: 005
+  m_EditorClassIdentifier: 
+  character: General Secretary
+  brief: "College students are dissatisfied with your management.\r\nWhat can we
+    do about it?\r"
+  characterSprite: {fileID: 21300000, guid: 8459a0c28ca378c408adc4e665bd905d, type: 3}
+  type: 0
+  situationBackground: 0
+  decisions:
+  - m_DecisionText: 'Cut education funds to teach them a lesson. '
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: 10
+  - m_DecisionText: 'Tell people that college students grow marijuana at universities
+      and that they have sex instead of studying. '
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: -15
+  - m_DecisionText: 'Increase investment in universities. '
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: 10
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Parlament
+      influenceAlteration: 10

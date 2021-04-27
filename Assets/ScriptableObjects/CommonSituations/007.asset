@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
+  m_Name: 007
+  m_EditorClassIdentifier: 
+  character: Minister of Economy
+  brief: "The price of gasoline is skyrocketing and people are starving!\r\nWhat
+    do you prefer to do?\r"
+  characterSprite: {fileID: 21300000, guid: a138adfcf54f4eb4891f031c50932a17, type: 3}
+  type: 0
+  situationBackground: 0
+  decisions:
+  - m_DecisionText: 'Spread the word that using a wood stove indoors is healthier. '
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: -15
+    - affectedGroup:
+        m_GroupName: Parlament
+      influenceAlteration: 5
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: 5
+  - m_DecisionText: Try to lower the price of food.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: 15
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Parlament
+      influenceAlteration: 10
+  - m_DecisionText: Regulate the gas price!
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: 10
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Parlament
+      influenceAlteration: 5

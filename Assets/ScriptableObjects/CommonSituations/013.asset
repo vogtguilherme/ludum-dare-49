@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
+  m_Name: 013
+  m_EditorClassIdentifier: 
+  character: Administrator of the Environmental Protection Agency
+  brief: President, the population is revolted because of deforestation. What actions
+    can we take?
+  characterSprite: {fileID: 21300000, guid: 9a53d30e74807c44ea80cc4698f75c31, type: 3}
+  type: 0
+  situationBackground: 0
+  decisions:
+  - m_DecisionText: Make deforestation laws more lenient.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: 10
+  - m_DecisionText: Take photos with the trees cleared to make publicity to the loggers!
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: -10
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: 10
+  - m_DecisionText: Increase fines against illegal deforestation.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+        lowInfluence: 0
+      influenceAlteration: 10
+    - affectedGroup:
+        m_GroupName: Private Sector
+        lowInfluence: 0
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Parlament
+        lowInfluence: 0
+      influenceAlteration: -10
