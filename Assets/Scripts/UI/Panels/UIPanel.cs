@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class UIPanel : MonoBehaviour
 {
     protected CanvasGroup m_CanvasGroup = null;
     [Header("UI Animation")]
-    [SerializeField]
-    private float m_FadeSpeed = 0.2f;
     [SerializeField]
     private float m_FadeTime = 1f;
 
@@ -41,20 +40,20 @@ public abstract class UIPanel : MonoBehaviour
 
         Debug.Log("Fade Completed");
     }
+}
 
-    IEnumerator StartFadeOut()
+public static class SpriteFader
+{
+    public static IEnumerator FadeSprite(Image sprite, Color fromColor, Color toColor, float fadeTime)
     {
-        Debug.Log("StartFadeOut()");
-        m_CanvasGroup.alpha = 1f;
+        Debug.Log("StartFade()");
+        sprite.color = fromColor;
+        float elapsedTime = 0f;
 
-        float fadeValue = 1;
-
-        while (fadeValue > 0)
+        while (elapsedTime < fadeTime)
         {
-            fadeValue = Mathf.Lerp(fadeValue, 0, Time.deltaTime * m_FadeSpeed);
-
-            m_CanvasGroup.alpha = fadeValue;
-
+            elapsedTime += Time.deltaTime;
+            sprite.color = Color.Lerp(fromColor, toColor, elapsedTime / fadeTime);
             yield return null;
         }
 

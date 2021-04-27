@@ -16,6 +16,11 @@ public class GroupController : MonoBehaviour
     public Group parlament { get; private set; }
     public Group privateSector { get; private set; }
 
+    public Group[] Groups
+    {
+        get { return groups; }
+    }
+
     private void Awake()
     {
         GetScriptReference();

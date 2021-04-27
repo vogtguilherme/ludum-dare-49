@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class GameManager : MonoBehaviour
     public SituationLibrary m_SituationLibrary { get; private set; }
 
     private bool decisionMade = false;
-    private bool gameOver;
+    private bool gameOver = false;
+    private bool criticSituation = false;
 
     private void Awake()
     {
@@ -49,17 +51,24 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameLoop()
     {
-        while(gameOver == false)
-        {
-            var situation = m_SituationLibrary.GetCommonSituation();
+        Group n_Group = null;
 
-            if (situation == null)
+        while (gameOver == false)
+        {
+            Situation situation;
+
+            situation = m_SituationLibrary.GetRareSituation();
+
+            if(situation == null)
             {
-                gameOver = true;                
+                gameOver = true;
             }
             else
             {
                 m_SituationController.SetCurrentSituation(situation);
+
+                UIManager.Instance.SetCharacterSprite(situation.m_CharacterSprite);
+                UIManager.Instance.SetSituationEnvironment(situation.m_SituationBackground);
 
                 Debug.Log("Nova situação!");
 
@@ -84,16 +93,47 @@ public class GameManager : MonoBehaviour
 
                 UIManager.Instance.FadeOutPanels();
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(.5f);
+
+                var n_Situation = m_SituationController.CurrentSituation;
+
+                UIManager.Instance.FadeOutCharacter();
+
+                n_Group = GetGroupStats();
+
+                if (n_Group != null)
+                {
+
+                }
+
+                situation = null;
             }            
 
-            yield return null;
+            yield return new WaitForSeconds(2f);           
         }
 
         Debug.Log("GameOver");
+
+        SceneManager.LoadScene("GameOver");
     }
     
     #endregion
+
+    public Group GetGroupStats()
+    {
+        Group group = null;
+        
+        for (int i = 0; i < m_GroupController.Groups.Length; i++)
+        {
+            if(m_GroupController.Groups[i].lowInfluence)
+            {
+                criticSituation = true;
+                group = m_GroupController.Groups[i];
+            }
+        }
+
+        return group;
+    }
 
     public void ConfirmDecision()
     {

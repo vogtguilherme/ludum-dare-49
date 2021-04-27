@@ -16,4 +16,10 @@ MonoBehaviour:
   brief: 
   characterSprite: {fileID: 21300000, guid: a138adfcf54f4eb4891f031c50932a17, type: 3}
   type: 0
-  decisions: []
+  decisions:
+  - m_DecisionText: 
+    m_Consequences: []
+  - m_DecisionText: 
+    m_Consequences: []
+  - m_DecisionText: 
+    m_Consequences: []

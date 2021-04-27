@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
   m_Name: 003
   m_EditorClassIdentifier: 
-  character: Minister of Economy
+  character: Minister of Environment
   brief: 
-  characterSprite: {fileID: 21300000, guid: a138adfcf54f4eb4891f031c50932a17, type: 3}
+  characterSprite: {fileID: 21300000, guid: 9a53d30e74807c44ea80cc4698f75c31, type: 3}
   type: 0
-  decisions: []
+  decisions:
+  - m_DecisionText: 
+    m_Consequences: []
+  - m_DecisionText: 
+    m_Consequences: []
+  - m_DecisionText: 
+    m_Consequences: []

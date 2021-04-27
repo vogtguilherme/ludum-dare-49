@@ -9,19 +9,25 @@ public class SituationData : ScriptableObject
     [TextArea]
     public string brief;
 
-    public Sprite characterSprite;
+    public Sprite characterSprite;    
 
     public SituationType type;
+    public SituationBackground situationBackground;
 
     public Decision[] decisions;
 
     public Situation GetSituation()
     {
         Situation situation;
-        situation = new Situation(type, brief, decisions.Length);
+        situation = new Situation(type, brief, decisions.Length, characterSprite, situationBackground);
 
         situation.SetDecisions(decisions);
         
         return situation;
     }
 }
+
+public enum SituationBackground
+{
+    Office, UN, Beach, Hospital, Live
+};
