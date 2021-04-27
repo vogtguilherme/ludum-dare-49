@@ -10,6 +10,11 @@ public class Group
     private string m_GroupName;
     private int m_CurrentInfluence;
 
+    public Action OnGropCrisis;
+    public Action OnGropCriticSituation;
+
+    public bool lowInfluence = false;
+
     public string GroupName
     {
         get { return m_GroupName; }
@@ -34,9 +39,26 @@ public class Group
         {
             m_CurrentInfluence = 100;
         }
-        else if(newValue < 0)
+        else if (newValue < 15)
         {
-            m_CurrentInfluence = 0;
+            m_CurrentInfluence = 10;
+
+            if (OnGropCriticSituation != null)
+            {
+                OnGropCriticSituation();
+            }
+
+            lowInfluence = true;
+
+        }
+        else if (newValue < 0 || newValue < 15 && lowInfluence == true)
+        {
+            m_CurrentInfluence = 10;
+
+            if (OnGropCrisis != null)
+            {
+                OnGropCrisis();
+            }
         }
         else
         {

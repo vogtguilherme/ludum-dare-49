@@ -439,6 +439,17 @@ MonoBehaviour:
   briefingPanel: {fileID: 1550199882}
   groupsPanel: {fileID: 153689}
   m_CharacterImage: {fileID: 521625180}
+  m_BackgroundImage: {fileID: 1036531969}
+  m_ForegroundImage: {fileID: 428464020}
+  officeForeground: {fileID: 21300000, guid: 63032d240a0849743b8051aabea91cdf, type: 3}
+  officeBackground: {fileID: 21300000, guid: 17c4f62b2b2d1cf40ba0099d5bf29ecb, type: 3}
+  unForeground: {fileID: 21300000, guid: f3849361ea227e740a4b6eee7d43b342, type: 3}
+  unBackground: {fileID: 21300000, guid: ab9159473f2aab541a38237d6b09f312, type: 3}
+  liveForeground: {fileID: 21300000, guid: a611a04c47d374d49ad5f342c9681336, type: 3}
+  liveBackground: {fileID: 21300000, guid: 32d0d45562c0cba42a2f57b14c69442e, type: 3}
+  hospitalForeground: {fileID: 21300000, guid: 3d4d01651aec3c54ea8dceb358a17a12, type: 3}
+  hospitalBackground: {fileID: 21300000, guid: ebc099ee2c0b32746beaa4ea1e30b165, type: 3}
+  beachBackground: {fileID: 21300000, guid: 62ca7c3baa6a0194f9d4e77fb8751593, type: 3}
 --- !u!4 &66625134
 Transform:
   m_ObjectHideFlags: 0
@@ -451,7 +462,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &119181291
 GameObject:
@@ -587,11 +598,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SituationData:
-  - {fileID: 11400000, guid: fe648fa6075cc3a4fad67145535c97ef, type: 2}
-  - {fileID: 11400000, guid: 222bad3e4acc2f94aa66507e21aee1b8, type: 2}
-  - {fileID: 11400000, guid: 1d7693340b489d94db916b8453de5f6b, type: 2}
-  - {fileID: 11400000, guid: 50e25fef2dac8644395ec30b57d9c45d, type: 2}
-  - {fileID: 11400000, guid: 4abf8a7bf73b4ff4f87b68937352d583, type: 2}
+  - {fileID: 11400000, guid: 10d9b3e4dd143c54e88daebf9b35a4c9, type: 2}
+  - {fileID: 11400000, guid: 4ddf05cc41e469b43ade6dc0a9501fe2, type: 2}
+  - {fileID: 11400000, guid: 3beb4be4738512f4e8d2541e30d6ebd9, type: 2}
+  - {fileID: 11400000, guid: 24470df9e0baaee46b62b17b027c46a5, type: 2}
 --- !u!1 &143446309
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +920,7 @@ GameObject:
   - component: {fileID: 428464021}
   - component: {fileID: 428464020}
   m_Layer: 5
-  m_Name: Office_Desk
+  m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1607,7 +1617,7 @@ GameObject:
   - component: {fileID: 1036531970}
   - component: {fileID: 1036531969}
   m_Layer: 5
-  m_Name: Office_Background
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2108,7 +2118,7 @@ Transform:
   m_Children:
   - {fileID: 143446310}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1486587527
 GameObject:
@@ -2230,6 +2240,7 @@ MonoBehaviour:
   m_GroupController: {fileID: 0}
   m_Group:
     m_GroupName: 
+    lowInfluence: 0
 --- !u!1 &1550199882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,6 +2642,7 @@ MonoBehaviour:
   m_GroupController: {fileID: 0}
   m_Group:
     m_GroupName: 
+    lowInfluence: 0
 --- !u!1 &1741816096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,6 +3094,7 @@ MonoBehaviour:
   m_GroupController: {fileID: 0}
   m_Group:
     m_GroupName: 
+    lowInfluence: 0
 --- !u!1 &2107285511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3334,3 +3347,4 @@ MonoBehaviour:
   m_GroupController: {fileID: 0}
   m_Group:
     m_GroupName: 
+    lowInfluence: 0

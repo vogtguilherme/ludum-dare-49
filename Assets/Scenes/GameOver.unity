@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '- BEGIN -'
+  m_Text: MENU
 --- !u!222 &110864395
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -262,16 +262,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "CONGRATULATIONS! YOU HAVE BEEN ELECTED AS THE NEW PRESIDENT!\r\n\r\nYOU
-    HAVE TO WORK YOUR WAY INTO REJECTION BY GIVING YOUR WORSE TO THIS NATION!\r\n\r\nTHE
-    ONLY PROBLEM IS: YOUR MANDATE MY END SOONER THAN YOU EXPECT IF YOU DON\u2019T
-    PLEASE THIS FOUR PILLARS:\r\n\r\nLEGISLATIVE - PRIVATE SECTOR - PEOPLE - MILITARY\r\n"
+  m_Text: "You have undergone an impeachment process! GAME OVER\r"
 --- !u!222 &425492357
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -449,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e2b9444f366454d84493fdb94fda15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Main
+  sceneToLoad: StartScreen
 --- !u!1 &1496598971
 GameObject:
   m_ObjectHideFlags: 0
