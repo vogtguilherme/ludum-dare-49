@@ -13,7 +13,7 @@ public class Group
     public Action OnGropCrisis;
     public Action OnGropCriticSituation;
 
-    public bool lowInfluence = false;
+    private bool lowInfluence = false;
 
     public string GroupName
     {
@@ -23,6 +23,11 @@ public class Group
     public int CurrentInfluence
     {
         get { return m_CurrentInfluence; }
+    }
+
+    public bool LowInfluence
+    {
+        get { return lowInfluence; }
     }
 
     public Group(string groupName)

@@ -6,13 +6,16 @@ public class SituationLibrary : MonoBehaviour
 {
     [SerializeField]
     private SituationData[] m_SituationData = null;
-    [SerializeField]
     private Situation[] m_Situations = null;
 
-    public List<Situation> m_CommonSituations { get; private set; }
+    [Space(2)]
+    [Header("Situations Lists")]
     [SerializeField]
-    private List<Situation> m_RareSituations = new List<Situation>();// { get; private set; }
-    public List<Situation> m_ExceptionalSituations { get; private set; }
+    private List<Situation> m_CommonSituations = new List<Situation>();
+    [SerializeField]
+    private List<Situation> m_RareSituations = new List<Situation>();
+    [SerializeField]
+    private List<Situation> m_ExceptionalSituations = new List<Situation>();
 
     private void Awake()
     {
@@ -33,7 +36,7 @@ public class SituationLibrary : MonoBehaviour
 
     public Situation GetCommonSituation()
     {
-        Situation situation;
+        Situation situation = null;
 
         if (m_CommonSituations.Count == 0)
             return null;

@@ -76,6 +76,9 @@ public class UIManager : MonoBehaviour
             case SituationBackground.Live:
                 SetEnvironment(liveBackground, liveForeground);
                 break;
+            case SituationBackground.Office:
+                SetEnvironment(officeBackground, officeForeground);
+                break;
         }
     }
     

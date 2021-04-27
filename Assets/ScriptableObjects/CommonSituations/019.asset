@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7124639f55d5b474c8e5ae66a050f515, type: 3}
+  m_Name: 019
+  m_EditorClassIdentifier: 
+  character: The People
+  brief: The People have claims to improve public security. Our homicide rates are
+    very high.
+  characterSprite: {fileID: -995696244613259635, guid: c8e77da26fa48974ca36da40394ab44f,
+    type: 3}
+  type: 0
+  situationBackground: 0
+  decisions:
+  - m_DecisionText: I will allow access to all weapons at very expensive prices that
+      only the rich can afford!
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: 20
+  - m_DecisionText: I will make the police more repressive and violent.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: -20
+    - affectedGroup:
+        m_GroupName: Military
+      influenceAlteration: 20
+    - affectedGroup:
+        m_GroupName: Private Sector
+      influenceAlteration: 10
+  - m_DecisionText: I will increase the investments in training and preparation for
+      the police forces.
+    m_Consequences:
+    - affectedGroup:
+        m_GroupName: People
+      influenceAlteration: 10
+    - affectedGroup:
+        m_GroupName: Military
+      influenceAlteration: 10

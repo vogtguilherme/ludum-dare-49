@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     private bool gameOver = false;
     private bool criticSituation = false;
 
+    private int iterations = 0;
+    private int maxIterations;
+
     private void Awake()
     {
         SetupSingleton();
@@ -53,11 +56,22 @@ public class GameManager : MonoBehaviour
     {
         Group n_Group = null;
 
+        maxIterations = UnityEngine.Random.Range(3, 5);
+
         while (gameOver == false)
         {
             Situation situation;
 
-            situation = m_SituationLibrary.GetRareSituation();
+            if(iterations == maxIterations)
+            {
+                situation = m_SituationLibrary.GetRareSituation();
+                iterations = 0;
+                maxIterations = UnityEngine.Random.Range(3, 5);
+            }
+            else
+            {
+                situation = m_SituationLibrary.GetCommonSituation();
+            }            
 
             if(situation == null)
             {
@@ -107,7 +121,9 @@ public class GameManager : MonoBehaviour
                 }
 
                 situation = null;
-            }            
+            }
+
+            iterations++;
 
             yield return new WaitForSeconds(2f);           
         }
@@ -125,7 +141,7 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < m_GroupController.Groups.Length; i++)
         {
-            if(m_GroupController.Groups[i].lowInfluence)
+            if(m_GroupController.Groups[i].LowInfluence)
             {
                 criticSituation = true;
                 group = m_GroupController.Groups[i];
